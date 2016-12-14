@@ -38,6 +38,13 @@ var config = {
                 "javascriptEnabled": true // set to false to test progressive enhancement
             }
         }
+    },
+    "test_runner" : {
+        "type" : "mocha",
+        "options" : {
+            "ui" : "bdd",
+            "reporter" : "list"
+        }
     }
 }
 

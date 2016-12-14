@@ -1,3 +1,3 @@
 module.exports = {
-    index: "http://localhost:8888/"
+    index: "https://bbandydd.github.io/React_Redux_Todolist/"
 }
