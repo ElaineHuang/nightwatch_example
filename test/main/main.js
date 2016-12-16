@@ -1,30 +1,31 @@
-describe('for Mocha with Nightwatch', function() {
-    it('應顯示標題、todo元件', function(browser) {
+module.exports = {
+    '應顯示標題、todo元件': (browser) => {
         browser
             .page.todo().goPage()
             .page.todo().shouldAllElementPresent()
             .end()
-    });
-
-    it('輸入待辦事項後應清空輸入框', function(browser) {
+    },
+    '輸入待辦事項後應清空輸入框': (browser) => {
         const todo = `new todo 1`;
+
         browser
             .page.todo().goPage()
             .page.todo().addTodo(todo)
             .end()
-    });
-
-    it('建立新待辦事項後應該出現在列表', function(browser) {
+    },
+    '建立新待辦事項後應該出現在列表': (browser) => {
         const todo = `new todo 1`;
+
         browser
             .page.todo().goPage()
             .page.todo().addTodo(todo)
             .page.todo().shouldSeeAtList(1, todo)
             .end()
-    });
+    },
+    '從api取得待辦事項後應該出現在列表': (browser) => {
 
-    it('從api取得待辦事項後應該出現在列表', function(browser) {
         const todos = ['add1', 'add2']
+
         browser
             .page.todo().goPage()
             .page.todo().getDataFromAjax()
@@ -36,10 +37,10 @@ describe('for Mocha with Nightwatch', function() {
 
         browser
             .end()
-    });
-
-    it('完成待辦事項後應標記為完成', function(browser) {
+    },
+    '完成待辦事項後應標記為完成': (browser) => {
         const todo = `new todo 1`;
+
         browser
             .page.todo().goPage()
             .page.todo().addTodo(todo)
@@ -47,10 +48,10 @@ describe('for Mocha with Nightwatch', function() {
             .page.todo().completeTodo(1)
             .page.todo().shouldCompletedTodo(1)
             .end()
-    });
-
-    it('可從列表刪除待辦事項', function(browser) {
+    },
+    '可從列表刪除待辦事項': (browser) => {
         const todo = `new todo 1`;
+
         browser
             .page.todo().goPage()
             .page.todo().addTodo(todo)
@@ -58,8 +59,8 @@ describe('for Mocha with Nightwatch', function() {
             .page.todo().deleteTodo(1)
             .page.todo().sholdGetNumbersOfTodos(0)
             .end()
-    });
-    it('切換filter並驗證', function(browser) {
+    },
+    '切換filter並驗證': (browser) => {
         const todos = [
             {
                 name: `new todo 1`,
@@ -98,5 +99,5 @@ describe('for Mocha with Nightwatch', function() {
 
         browser
             .end()
-    });
-});
+    }
+}
