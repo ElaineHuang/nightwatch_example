@@ -32,7 +32,7 @@ var config = {
             "desiredCapabilities": { // use Chrome as the default browser for tests
                 "browserName": "chrome"
             },
-            "skip_testcases_on_fail": true
+            "skip_testcases_on_fail": false
         },
         "chrome": {
             "desiredCapabilities": {
