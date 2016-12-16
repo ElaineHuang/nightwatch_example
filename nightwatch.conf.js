@@ -1,5 +1,7 @@
 var os = require('os');
 var url = require('./env/url.js');
+var selenium = require('selenium-server-standalone-jar');
+var chromeDriver = require('chrome-driver-standalone');
 
 var config = {
     "src_folders": [
@@ -9,11 +11,11 @@ var config = {
     "output_folder": "./reports", // reports (test outcome) output by nightwatch
     "selenium": { // downloaded by selenium-download module (see readme)
         "start_process": true, // tells nightwatch to start/stop the selenium process
-        "server_path": "./bin/selenium-server.jar",
+        "server_path": selenium.path,
         "host": "127.0.0.1",
         "port": 4444, // standard selenium port
         "cli_args": { // chromedriver is downloaded by selenium-download (see readme)
-            "webdriver.chrome.driver": "nightwatch",
+            "webdriver.chrome.driver": chromeDriver.path,
             "webdriver.firefox.profile" : "nightwatch"
         }
     },
@@ -46,17 +48,6 @@ var config = {
     //         "reporter" : "list"
     //     }
     // }
-}
-
-// condition os type
-var os_type = os.type().toLowerCase();
-var selenium_cli = config.selenium.cli_args;
-if (os_type.indexOf('windows') > -1) {
-    selenium_cli['webdriver.chrome.driver'] = 'bin/chromedriver_windows.exe';
-} else if (os_type.indexOf('darwin') > -1) {
-    selenium_cli['webdriver.chrome.driver'] = 'bin/chromedriver_mac';
-} else {
-    selenium_cli['webdriver.chrome.driver'] = 'bin/chromedriver_linux64';
 }
 
 module.exports = config;
