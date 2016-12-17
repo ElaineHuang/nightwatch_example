@@ -2,6 +2,7 @@ var os = require('os');
 var url = require('./env/url.js');
 var selenium = require('selenium-server-standalone-jar');
 var chromeDriver = require('chrome-driver-standalone');
+var geckoDriver = require('geckodriver');
 
 var config = {
     "src_folders": [
@@ -16,7 +17,7 @@ var config = {
         "port": 4444, // standard selenium port
         "cli_args": { // chromedriver is downloaded by selenium-download (see readme)
             "webdriver.chrome.driver": chromeDriver.path,
-            "webdriver.firefox.profile" : "nightwatch"
+            "webdriver.gecko.driver": geckoDriver.path
         }
     },
     "test_settings": {
@@ -38,6 +39,11 @@ var config = {
             "desiredCapabilities": {
                 "browserName": "chrome",
                 "javascriptEnabled": true // set to false to test progressive enhancement
+            }
+        },
+        "firefox": {
+            "desiredCapabilities": {
+                "browserName": 'firefox'
             }
         }
     }

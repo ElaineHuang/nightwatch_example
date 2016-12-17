@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nightwatch --test test/main/main.js --reporter reporter.js"
+    "start": "nightwatch --test test/main/main.js --reporter reporter.js",
+    "firefox": "nightwatch -e firefox --reporter reporter.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.13.2",
     "chrome-driver-standalone": "^2.25.0",
+    "geckodriver": "^1.2.0",
     "nightwatch": "^0.9.6",
     "nightwatch-html-reporter": "^1.0.8",
     "selenium-server-standalone-jar": "^3.0.1"
