@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nightwatch --test test/main/main.js --reporter reporter.js",
+    "test": "nightwatch --group test/main/ --reporter reporter.js",
     "firefox": "nightwatch -e firefox --reporter reporter.js"
   },
   "keywords": [],
@@ -21,8 +22,5 @@
     "nightwatch": "^0.9.6",
     "nightwatch-html-reporter": "^1.0.8",
     "selenium-server-standalone-jar": "^3.0.1"
-  },
-  "devDependencies": {
-    "mocha": "^3.2.0"
   }
 }

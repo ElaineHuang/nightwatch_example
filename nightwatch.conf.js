@@ -23,8 +23,9 @@ var config = {
     "test_settings": {
         "default": {
             "screenshots": {
-                "enabled": false, // if you want to keep screenshots
-                "path": './screenshots' // save screenshots here
+                "enabled": true, // if you want to keep screenshots
+                "path": './screenshots', // save screenshots here
+                "on_failure": true
             },
             "globals": {
                 "waitForConditionTimeout": 5000, // sometimes internet is slow so wait.
@@ -47,13 +48,6 @@ var config = {
             }
         }
     }
-    // "test_runner" : {
-    //     "type" : "mocha",
-    //     "options" : {
-    //         "ui" : "bdd",
-    //         "reporter" : "list"
-    //     }
-    // }
 }
 
 module.exports = config;
