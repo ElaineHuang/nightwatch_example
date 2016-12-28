@@ -8,6 +8,7 @@ var config = {
     "src_folders": [
         "test" // Where you are storing your Nightwatch e2e tests
     ],
+    "custom_commands_path": "test/command",
     'page_objects_path': ['test/pages'],
     "output_folder": "./reports", // reports (test outcome) output by nightwatch
     "selenium": { // downloaded by selenium-download module (see readme)
