@@ -23,15 +23,15 @@ module.exports = {
     },
     '從api取得待辦事項後應該出現在列表': (browser) => {
 
-        const todos = ['add1', 'add2']
+        const todos = ['add1', 'add2'];
 
         browser.page.todo()
-            .click('@btn_ajax')
+            .click('@btn_ajax');
 
         todos.map((todo, index) => {
             browser
                 .shouldSeeAtList(index+1, todo);
-        })
+        });
     },
     '完成待辦事項後應標記為完成': (browser) => {
         const todo = `new todo 1`;
@@ -74,10 +74,10 @@ module.exports = {
                     .page.todo().completeTodo(index+1)
                     .page.todo().shouldCompletedTodo(index+1);
             }
-        })
+        });
 
         browser
             .page.todo().switchTag('Completed')
             .page.todo().switchTag('Active');
     }
-}
+};

@@ -1,0 +1,17 @@
+{
+  "bitwise":true,
+  "curly":true,
+  "noempty":true,
+  "nonew":true,
+  "undef":true,
+  "node":true,
+  "supernew":true,
+  "validthis":true,
+  "sub":true,
+  "loopfunc":true,
+  "quotmark":"single",
+  "indent":2,
+  "newcap":true,
+  "trailing":true,
+  "esnext": true
+}
