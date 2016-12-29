@@ -1,5 +1,4 @@
 var os = require('os');
-var url = require('./env/url.js');
 var selenium = require('selenium-server-standalone-jar');
 var chromeDriver = require('chrome-driver-standalone');
 var geckoDriver = require('geckodriver');
@@ -30,7 +29,6 @@ var config = {
             },
             "globals": {
                 "waitForConditionTimeout": 5000, // sometimes internet is slow so wait.
-                "url_index": url.index
             },
             "desiredCapabilities": { // use Chrome as the default browser for tests
                 "browserName": "chrome"
