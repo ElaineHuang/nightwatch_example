@@ -1,5 +1,7 @@
-exports.command = function addTodo(todo){
-    var browser = this.page.todo();
+"use strict";
+
+exports.command = function(todo) {
+    let browser = this.page.todo();
     browser
         .setValue('@new_todo', todo)
         .click('@btn_add')

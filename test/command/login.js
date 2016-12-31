@@ -1,5 +1,7 @@
+"use strict";
+
 exports.command = function(username, password){
-  var browser = this.page.github();
+  let browser = this.page.github();
   browser
     .navigate()
     .waitForElementPresent('header.site-header', 'page ok')

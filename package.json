@@ -22,6 +22,7 @@
     "geckodriver": "^1.2.0",
     "nightwatch": "^0.9.6",
     "nightwatch-html-reporter": "^1.0.8",
+    "randomstring": "^1.1.5",
     "selenium-server-standalone-jar": "^3.0.1"
   },
   "devDependencies": {

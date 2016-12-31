@@ -1,3 +1,4 @@
+"use strict";
 module.exports = {
   url: 'https://github.com',
   elements:{
@@ -33,6 +34,7 @@ module.exports = {
         return this.api;
     },
     deleteRepo(account, repositoryName) {
+        let resName = account + '/' + repositoryName;
         this.click('span[title="' + resName + '"]')
             .waitForElementVisible('@rep_container')
             .click('@rep_setting')

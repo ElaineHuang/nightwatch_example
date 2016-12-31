@@ -1,3 +1,5 @@
+"use strict";
+
 exports.command = function(){
     let browser = this.page.todo();
     browser
