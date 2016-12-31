@@ -19,7 +19,16 @@ module.exports = {
     setting_modal: '#facebox',
     setting_modal_resname: '#facebox > div > div > form > p > input',
     setting_modal_del: '#facebox > div > div > form > button' ,
-    index_flashnotice: '.flash-notice'
+    index_flashnotice: '.flash-notice',
+    search_bar: 'input.form-control.header-search-input',
+    search_form: 'form.js-site-search-form',
+    target_project: 'a.v-align-middle',
+    unstar_num: 'form.unstarred > a.social-count.js-social-count',
+    star_num: 'form.starred > a',
+    star_btn: 'form.unstarred > button.btn.btn-sm.btn-with-count.js-toggler-target',
+    user_dropdown: '#user-links > li:nth-child(3) > a.header-nav-link',
+    your_starts: '#user-links > li.header-nav-item.dropdown.js-menu-container.active > div > div > a:nth-child(4)',
+    unstar_btn: 'button.btn.btn-sm.js-toggler-target'
   },
   commands: [{
     createRepo(repositoryName){
@@ -43,7 +52,24 @@ module.exports = {
             .waitForElementVisible('@setting_modal')
             .setValue('@setting_modal_resname', repositoryName)
             .click('@setting_modal_del')
-            .waitForElementVisible('@index_flashnotice')
+            .waitForElementVisible('@index_flashnotice');
+        return this.api;
+    },
+    starProject(project) {
+        this.waitForElementVisible('@search_bar')
+            .setValue('@search_bar', project)
+            .submitForm('@search_form')
+            .click('@target_project')
+            .click('@star_btn');
+        return this.api;
+    },
+    unstarProject() {
+        this.waitForElementVisible('@user_dropdown')
+            .click('@user_dropdown')
+            .waitForElementVisible('@your_starts')
+            .click('@your_starts')
+            .waitForElementVisible('@unstar_btn')
+            .click('@unstar_btn');
         return this.api;
     }
   }]
