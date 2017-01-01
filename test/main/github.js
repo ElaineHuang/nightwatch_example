@@ -18,8 +18,9 @@ module.exports = {
       done();
   },
   after(browser, done) {
-      browser.end();
-      done();
+      browser.end(() => {
+        done();
+      });
   },
   'go to github index page': (browser) => {
     browser

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nightwatch --test test/main/main.js --reporter reporter.js",
+    "start": "nightwatch --test test/main/github.js --reporter reporter.js",
     "test": "nightwatch --group test/main/ --reporter reporter.js",
     "firefox": "nightwatch -e firefox --reporter reporter.js",
     "jshint": "./node_modules/.bin/jshint --verbose --config .jshintrc test/"
