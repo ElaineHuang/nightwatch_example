@@ -44,7 +44,9 @@ module.exports = {
     },
     deleteRepo(account, repositoryName) {
         let resName = account + '/' + repositoryName;
-        this.click('span[title="' + resName + '"]')
+        this.click('svg.octicon.octicon-mark-github')
+            .waitForElementVisible('div.boxed-group-action')
+            .click('span[title="' + resName + '"]')
             .waitForElementVisible('@rep_container')
             .click('@rep_setting')
             .waitForElementVisible('@setting_field_rename')
@@ -56,7 +58,8 @@ module.exports = {
         return this.api;
     },
     starProject(project) {
-        this.waitForElementVisible('@search_bar')
+        this.click('svg.octicon.octicon-mark-github')
+            .waitForElementVisible('@search_bar')
             .setValue('@search_bar', project)
             .submitForm('@search_form')
             .click('@target_project')

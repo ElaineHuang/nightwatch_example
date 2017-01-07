@@ -7,6 +7,10 @@ let repositoryName = randomstring.generate({
   length: 12,
   charset: 'alphabetic'
 });
+let startRepo = randomstring.generate({
+  length: 12,
+  charset: 'alphabetic'
+});
 
 module.exports = {
   before(browser) {
@@ -22,14 +26,16 @@ module.exports = {
         done();
       });
   },
-  'go to github index page': (browser) => {
+  'create repo': (browser) => {
     browser
       .page.github().createRepo(repositoryName)
       .page.github().deleteRepo(username, repositoryName);
   },
   'star project': (browser) => {
     browser
-      .page.github().starProject(project)
-      .page.github().unstarProject();
+      .page.github().createRepo(startRepo)
+      .page.github().starProject(startRepo)
+      .page.github().unstarProject()
+      .page.github().deleteRepo(username, startRepo);
   }
 };
