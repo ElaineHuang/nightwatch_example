@@ -21,14 +21,15 @@ module.exports = {
     setting_modal_del: '#facebox > div > div > form > button' ,
     index_flashnotice: '.flash-notice',
     search_bar: 'input.form-control.header-search-input',
+    repo_icon: 'h1.public > svg.octicon.octicon-repo',
     search_form: 'form.js-site-search-form',
-    target_project: 'a.v-align-middle',
+    target_project: 'div.d-inline-block.col-9.mb-1 > h3 > a.v-align-middle',
     unstar_num: 'form.unstarred > a.social-count.js-social-count',
     star_num: 'form.starred > a',
     star_btn: 'form.unstarred > button.btn.btn-sm.btn-with-count.js-toggler-target',
     user_dropdown: '#user-links > li:nth-child(3) > a.header-nav-link',
     your_starts: '#user-links > li.header-nav-item.dropdown.js-menu-container.active > div > div > a:nth-child(4)',
-    unstar_btn: 'button.btn.btn-sm.js-toggler-target'
+    unstar_btn: '#js-pjax-container > div > div.col-9.float-left.pl-2 > div.js-repo-filter.position-relative > div:nth-child(2) > div.float-right > div > form.starred > button'
   },
   commands: [{
     createRepo(repositoryName){
@@ -59,10 +60,12 @@ module.exports = {
     },
     starProject(project) {
         this.click('svg.octicon.octicon-mark-github')
-            .waitForElementVisible('@search_bar')
+            .waitForElementNotPresent('@repo_icon')
             .setValue('@search_bar', project)
             .submitForm('@search_form')
+            .waitForElementVisible('@target_project')
             .click('@target_project')
+            .waitForElementVisible('@star_btn')
             .click('@star_btn');
         return this.api;
     },
