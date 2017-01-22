@@ -1,7 +1,7 @@
 "use strict";
 let randomstring = require("randomstring");
-let username = 'fastfood001';
-let password = 'fastfood000';
+let username = 'tarokoTest';
+let password = 'tarokoTest888';
 let project = 'fubo-flea-market';
 let repositoryName = randomstring.generate({
   length: 12,
